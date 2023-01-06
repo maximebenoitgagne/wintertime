@@ -1,0 +1,9 @@
+#!/bin/sh
+for s in $(egrep -h '^ *# *(define|undef)  *\w+ *$' code/*h |
+           sed -r -e 's/^ *# *(define|undef) *//' -e 's/ *[( ].*$//' |
+           sort | uniq | grep -v '_H$'); do
+    if ! (cat build/*.F | grep -w -q "$s"); then
+        echo $s
+    fi
+done
+

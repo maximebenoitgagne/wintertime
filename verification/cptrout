@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+import sys
+import os
+from scipy.io.netcdf import netcdf_file
+import numpy as np
+from darwin import iofmt
+from subprocess import call
+
+ftmpl0 = '/home/jahn/darwin3/Darwin2/darwin2/verification/{}/run/var_trcstat_ptracer{:02d}_mean.txt'
+ftmpl1 = '{}/results/var_trcstat_ptracer{:02d}_mean.txt'
+
+k = np.s_[:1]
+
+args = sys.argv[1:]
+exp, = args
+
+names0 = np.genfromtxt('/home/jahn/darwin3/Darwin2/darwin2/verification/{}/names'.format(exp), object)
+names = np.genfromtxt('{}/names'.format(exp), object)
+namel0 = names0.tolist()
+namel = names.tolist()
+
+ii = []
+ff = []
+for name in namel:
+    nameorig = name
+    if name in namel0:
+        ii.append(namel0.index(name))
+        ff.append(1.)
+        continue
+    if name[-1] == 'C':
+        name = name[:-1] + 'P'
+        if name in namel0:
+            ii.append(namel0.index(name))
+            ff.append(120.)
+            continue
+    if name.startswith('c'):
+        name = 'Phy' + str(int(name[1:]))
+        if name in namel0:
+            ii.append(namel0.index(name))
+            ff.append(120.)
+            continue
+    if name.startswith('Phy'):
+        name = 'Phy{:02d}'.format(int(name[3:]))
+        if name in namel0:
+            ii.append(namel0.index(name))
+            ff.append(120.)
+            continue
+    if name.startswith('zc'):
+        name = 'ZOO' + str(int(name[2:])) + 'P'
+        if name in namel0:
+            ii.append(namel0.index(name))
+            ff.append(120.)
+            continue
+    ii.append(0)
+    ff.append(0.)
+    sys.stderr.write('Tracer not found: {}\n'.format(nameorig))
+
+for i,name in enumerate(namel):
+    print '{i:02d} {0:<6s} <- {1:6.2f}*{2}'.format(name, ff[i], ff[i] and namel0[ii[i]] or '', i=i+1)
+
+i0s = ii
+f0s = ff
+n = len(namel)
+
+for i,i0 in enumerate(i0s):
+#    call(['cp', '-p',
+#          '/home/jahn/darwin3/Darwin2/darwin2/verification/{}/run/var_trcstat_ptracer{:02d}_mean.txt'.format(exp, i0+1),
+#          '{}/results/var_trcstat_ptracer{:02d}_mean.txt'.format(exp, i+1),
+#         ])
+    p = np.loadtxt(ftmpl0.format(exp, i0+1), 'i,f8')
+    p['f1'] *= f0s[i]
+    np.savetxt(ftmpl1.format(exp, i+1), p, fmt='%6d\t%25.16E')
+

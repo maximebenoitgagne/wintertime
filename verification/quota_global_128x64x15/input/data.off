@@ -1,0 +1,23 @@
+ &OFFLINE_PARM01
+  UvelFile= '/data/jahn/ECCO/iter177/Dynvars2_ave/DDuvel',
+  VvelFile= '/data/jahn/ECCO/iter177/Dynvars2_ave/DDvvel',
+  WvelFile= '/data/jahn/ECCO/iter177/Dynvars2_ave/DDwvel',
+  GMwxFile= '/data/jahn/ECCO/iter177/Gm2_ave/DGMkwx',
+  GMwyFile= '/data/jahn/ECCO/iter177/Gm2_ave/DGMkwy',
+  GMwzFile= '/data/jahn/ECCO/iter177/Gm2_ave/DGMkwz',
+# ConvFile= 'input_off/Convtave',
+  SaltFile= '/data/jahn/ECCO/iter177/Dynvars2_ave/DDsalt',
+  ThetFile= '/data/jahn/ECCO/iter177/Dynvars2_ave/DDtheta',
+  SFluxFile='/data/jahn/ECCO/iter177/Forcing2_ave/DFOsflux',
+# HFluxFile=' ',
+  KPP_DiffSFile='/data/jahn/ECCO/iter177/Kpp2_ave/DKPPdifs',
+# KPP_ghatFile=' ',
+ &end
+
+ &OFFLINE_PARM02
+  offlineIter0=0,
+  deltaToffline=3600.,
+  offlineForcingPeriod=2592000.,
+  offlineForcingCycle=31104000.,
+ &end
+

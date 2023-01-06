@@ -1,0 +1,1 @@
+rm -f grid.t*.nc phiHyd.0005644800.t*.nc phiHydLow.0005644800.t*.nc state.0005644800.t*.nc ptracers.0005644800.t*.nc gud.0005644800.t*.nc

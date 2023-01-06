@@ -1,0 +1,2 @@
+#!/bin/sh
+rm -r gud.0000000000.t001.nc grid.t001.nc phiHyd.0000000000.t001.nc phiHydLow.0000000000.t001.nc ptracers.0000000000.t001.nc state.0000000000.t001.nc

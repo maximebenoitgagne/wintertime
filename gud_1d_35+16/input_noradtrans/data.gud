@@ -1,0 +1,132 @@
+########################
+ &GUD_FORCING_PARAMS
+ gud_chlInitBalanced= T,
+ icefile='input/siarea.nemo.2016.365.32bits.bin',
+ icePeriod= 86400.,
+ icestartdate1= 20160101,
+ icestartdate2= 000000,
+ ironFile='input/GE_hamilton2019_SFEDEP_times10.daily.32bits.bin',
+ ironPeriod= 86400.,
+ ironstartdate1= 20160101,
+ ironstartdate2= 000000,
+ PARFile='input/1D_GDPS_PAR_y2016.365.32bits.bin',
+ PARPeriod= 86400.,
+ PARstartdate1= 20160101,
+ PARstartdate2= 000000,
+ PAR_iceFile='input/1D_NEMO_PARice_y2016.365.32bits.bin',
+ PAR_icePeriod= 86400.,
+ PAR_icestartdate1= 20160101,
+ PAR_icestartdate2= 000000,
+ windFile='input/constant_wind.daily.32bits.bin',
+ windPeriod= 86400.,
+ windstartdate1= 20160101,
+ windstartdate2= 000000,
+ gud_inscal_iron= 1000.,
+ /
+########################
+ &GUD_PARAMS
+ diaz_ini_fac= 0.1,
+ gud_linFSConserve= T,
+ gud_seed= 56,
+ gud_read_phos= F,
+ tempCoeffArr= 0.8,
+ PARmin= 0.1,
+ alpfe= 1.0,
+ freefemax = .1E-3,
+ depthfesed= 7000.,
+ scav_rat= 1.73611111111111111111E-7,
+ kdoc=  3.8580246913580247E-7,  ! 1/30day
+ kdop=  3.8580246913580247E-7,  ! 1/30day
+ kdon=  3.8580246913580247E-7,  ! 1/30day
+ kdofe= 3.8580246913580247E-7,  ! 1/30day
+ kPOC=  3.8580246913580247E-7,  ! 1/30day
+ kPOP=  3.8580246913580247E-7,  ! 1/30day
+ kPON=  3.8580246913580247E-7,  ! 1/30day
+ kPOFe= 3.8580246913580247E-7,  ! 1/30day
+ kPOSi= 7.7160493827160493E-8,  ! 1/150day
+ phygrazmin= 120E-10,
+ hollexp = 2.E0,
+ gud_atmos_pCO2= 278E-6,
+ /
+########################
+ &GUD_RADTRANS_PARAMS
+ /
+########################
+ &GUD_CDOM_PARAMS
+  fracCDOM = 0.02,
+  cdomdegrd= 3.8580e-08,
+  CDOMbleach = 3.0000e-06,
+  PARCDOM = 70.,
+  R_NP_CDOM  = 16.,
+  R_FeP_CDOM = 1.e-3,
+  R_CP_CDOM  = 120.,
+  CDOMcoeff = 21.,
+ /
+########################
+ &GUD_RANDOM_PARAMS
+ /
+########################
+ &GUD_TRAIT_PARAMS
+  gud_sort_biovol= F,
+#                        P  S  s  C  z  T  D   l   Z
+ grp_nplank(:)=          1, 1, 2, 5, 4, 1, 9, 10, 16,
+ grp_photo(:)=           1, 1, 1, 1, 1, 1, 1,  1,  0,
+ grp_pred(:)=            0, 0, 0, 0, 0, 0, 0,  1,  1,
+ grp_prey(:)=            1, 1, 1, 1, 1, 1, 1,  1,  1,
+ grp_hasSi(:)=           0, 0, 0, 0, 0, 0, 1,  0,  0,
+ grp_hasPIC(:)=          0, 0, 0, 1, 0, 0, 0,  0,  0,
+ grp_DIAZO(:)=           0, 0, 0, 0, 1, 1, 0,  0,  0,
+ grp_useNH4(:)=          1, 1, 1, 1, 1, 1, 1,  1,  0,
+ grp_useNO2(:)=          1, 1, 1, 1, 1, 1, 1,  1,  0,
+ grp_useNO3(:)=          1, 1, 1, 1, 1, 1, 1,  1,  0,
+ grp_combNO(:)=          1, 1, 1, 1, 1, 1, 1,  1,  0,
+ grp_tempMort(:)=        0, 0, 0, 0, 0, 0, 0,  0,  0,
+ grp_tempMort2(:)=       0, 0, 0, 0, 0, 0, 0,  0,  0,
+ grp_aptype(:)=          4, 2, 1, 6, 8, 7, 5,  9, 11,
+#
+ grp_Xmin(:)= 8*1E-2,
+
+ grp_mqyield(:)= 8*4E-5,
+ grp_chl2cmax(:)=  6*.2, .3, .2,
+ grp_acclimtimescl(:)= 8*5.7870370370370370E-6,
+ logvolbase= -.9000,
+ logvolinc= .513,
+ logvol0ind(:)= 1, 2, 3, 5, 5, 9, 7, 7, 7,
+ a_biosink(:)= 8*6.951416635391563E-7, 0.,  ! .05*dm**.85
+ b_biosink(:)= 8*.2833333333333333, 0.,
+ a_vmax_DIC(1)= 1.26,
+ a_vmax_DIC(2)= 1.26,
+ a_vmax_DIC(3)= 1.26,
+ a_vmax_DIC(4)= 1.96,
+ a_vmax_DIC(5)= 1.33,
+ a_vmax_DIC(6)= 1.33,
+ a_vmax_DIC(7)= 2.73,
+ a_vmax_DIC(8)= 2.38,
+
+ a_vmax_DIC_denom(:)= 8*86400.,
+ b_vmax_DIC(:)= 0.08, 0.08, 0.08, -0.08, -0.08, -0.08,-0.08, -0.08, 0.,
+#
+ a_qmin_p(:) = 8*0.005, 0.008,
+ a_qmax_p(:) = 8*0.02,  0.01,
+#
+ gud_effective_ksat= T,
+ gud_select_kn_allom= 2,
+#
+ grp_ExportFracPreyPred(1:8,9)= 8*.8,
+ grp_R_ChlC(9)= 0.,
+ a_graz(9)= 3.4722000000000000E-05,  ! prowe values
+ b_graz(9)= -0.16,
+#
+ grp_mort(:)= 8*6e-07, 2e-7,  ! 1/7days, 1/50days
+ grp_mort2(:)= 8*6.e-7, 8.e-7,  ! 16*.6/120/day
+ grp_tempcoeff2= 8*.0003,
+ grp_R_PC(:)= 9*0.008333333333333333,
+ grp_R_FeC(:)= 4*0.008333333333333333E-3, 2*0.03333333333333333E-3, 2*0.008333333333333333E-3, 1*0.001333333333333333E-3,
+ grp_R_NC(:)= 4*0.13333333333333333, 2*0.3333333333333333, 3*0.13333333333333333,
+ grp_R_SiC(:)= 6*0., 0.2666666666666666, 2*0.,
+ grp_R_PICPOC(:)= 3*0., .8, 5*0.,
+ a_kg(:)= 8*1.5, 1*1.5,
+ b_kg(:)= 9*0,
+#
+ grp_ass_eff(:,:)=81*0.5,
+ /

@@ -1,0 +1,49 @@
+﻿parameter,species,irradiance_umol_photon_m2_s,value,value_units
+PCmax,Chaetoceros_furcellatus,13.68821293,0.750938967,d^-1
+PCmax,Chaetoceros_furcellatus,25.34854246,0.40258216,d^-1
+PCmax,Chaetoceros_furcellatus,201.2674271,0.856103286,d^-1
+PCmax,Chaetoceros_furcellatus,402.0278834,0.172535211,d^-1
+PCmax,Chaetoceros_neogracile,9.632446134,0.995774648,d^-1
+PCmax,Chaetoceros_neogracile,50.69708492,0.967840376,d^-1
+PCmax,Chaetoceros_neogracile,80.60836502,0.985915493,d^-1
+PCmax,Chaetoceros_neogracile,402.0278834,0.731220657,d^-1
+PCmax,Thalassiosira_nordenskioeldii,13.18124208,0.966197183,d^-1
+PCmax,Thalassiosira_nordenskioeldii,25.34854246,1.091079812,d^-1
+PCmax,Thalassiosira_nordenskioeldii,200.7604563,1.278403756,d^-1
+PCmax,Thalassiosira_nordenskioeldii,402.0278834,0.315492958,d^-1
+PCmax,Thalassiosira_gravida_1,16.22306717,0.824882629,d^-1
+PCmax,Thalassiosira_gravida_1,42.58555133,0.749295775,d^-1
+PCmax,Thalassiosira_gravida_1,84.66413181,0.440375587,d^-1
+PCmax,Thalassiosira_gravida_1,136.8821293,0.302347418,d^-1
+PCmax,Thalassiosira_gravida_2,7.604562738,1.107511737,d^-1
+PCmax,Thalassiosira_gravida_2,51.20405577,0.423943662,d^-1
+PCmax,Thalassiosira_gravida_2,80.10139417,0.35657277,d^-1
+PCmax,Thalassiosira_gravida_2,401.0139417,0.300704225,d^-1
+PCmax,Fragilariopsis_cylindrus,5.069708492,0.440375587,d^-1
+PCmax,Fragilariopsis_cylindrus,24.84157161,0.239906103,d^-1
+PCmax,Fragilariopsis_cylindrus,64.89226869,0.146244131,d^-1
+PCmax,Fragilariopsis_cylindrus,125.7287706,0.134741784,d^-1
+alphastar,Chaetoceros_furcellatus,11.73184358,0.02703125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-1
+alphastar,Chaetoceros_furcellatus,24.58100559,0.02265625,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-2
+alphastar,Chaetoceros_furcellatus,200,0.02890625,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-3
+alphastar,Chaetoceros_furcellatus,400,0.00984375,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-4
+alphastar,Chaetoceros_neogracile,10.0558659,0.034375,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-5
+alphastar,Chaetoceros_neogracile,49.7206704,0.038125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-6
+alphastar,Chaetoceros_neogracile,79.8882682,0.02546875,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-7
+alphastar,Chaetoceros_neogracile,398.882682,0.01453125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-8
+alphastar,Thalassiosira_nordenskioeldii,12.84916201,0.01875,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-9
+alphastar,Thalassiosira_nordenskioeldii,25.69832402,0.02171875,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-10
+alphastar,Thalassiosira_nordenskioeldii,198.8826816,0.02109375,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-11
+alphastar,Thalassiosira_nordenskioeldii,400,0.01578125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-12
+alphastar,Thalassiosira_gravida_1,15.0837989,0.02671875,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-13
+alphastar,Thalassiosira_gravida_1,42.4581006,0.03078125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-14
+alphastar,Thalassiosira_gravida_1,84.3575419,0.02296875,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-15
+alphastar,Thalassiosira_gravida_1,136.312849,0.01046875,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-16
+alphastar,Thalassiosira_gravida_2,10.0558659,0.03015625,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-17
+alphastar,Thalassiosira_gravida_2,50.2793296,0.01828125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-18
+alphastar,Thalassiosira_gravida_2,80.4469274,0.01953125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-19
+alphastar,Thalassiosira_gravida_2,400,0.008125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-20
+alphastar,Fragilariopsis_cylindrus,4.46927374,0.04203125,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-21
+alphastar,Fragilariopsis_cylindrus,24.0223464,0.04296875,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-22
+alphastar,Fragilariopsis_cylindrus,64.8044693,0.03109375,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-23
+alphastar,Fragilariopsis_cylindrus,125.139665,0.01390625,g C (g Chl a)^-1 h^-1 (umol photons m^-2 s^-1)^-24

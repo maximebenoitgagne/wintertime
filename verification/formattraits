@@ -1,0 +1,2 @@
+#!/bin/sh
+cat darwin_traits.nml | sed -e 's/  *,/,/g' -e 's/\.\?00000*.E/E/g' -e 's/\.\?00000*.,/,/g' -e 's/E-00*/E-/g' 

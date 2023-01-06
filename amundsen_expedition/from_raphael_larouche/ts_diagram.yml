@@ -1,0 +1,10 @@
+name: ts_diagram
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - gsw
+  - matplotlib
+  - numpy
+  - pandas
+prefix: /Users/maximebenoit-gagne/anaconda/envs/ts_diagram

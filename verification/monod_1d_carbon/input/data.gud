@@ -1,0 +1,52 @@
+ &GUD_FORCING_PARAMS
+ ironFile='../input/input/loc1_FeFlux_monsurf.bin',
+ PARFile='../input/input/loc1_owsm_PAR_monsurf.bin',
+ ironPeriod= -12.,
+ PARPeriod= -12.,
+ gud_inscal_iron= 1000.,
+ gud_inscal_PAR= 11.574074074074,
+ /
+ &GUD_PARAMS
+ diaz_ini_fac= 0.1,
+ gud_seed= 11231,
+ gud_read_phos= T,
+ PARmin= 1.0,
+ alpfe= 1.0,
+ freefemax = .1D-3,
+ depthfesed= 7000.,
+ scav_rat= 0.00000011574074074074074D0,
+# denit_no3= 104.,
+# o2crit=200.,
+# no3crit=1D-2,
+ kdop=  2.3148148148148148D-07,  ! 2/100day
+ kdon=  2.3148148148148148D-07,  ! 2/100day
+ kdofe= 2.3148148148148148D-07,  ! 2/100day
+ kPOP=  4.6296296296296297D-07,  ! 2/50day
+ kPON=  4.6296296296296297D-07,  ! 2/50day
+ kPOFe= 4.6296296296296297D-07,  ! 2/50day
+ kPOSi= 7.71604938271605D-08,    ! 2/300day
+# gud_atmos_pCO2= 278D0,
+ /
+ &GUD_RADTRANS_PARAMS
+ /
+ &GUD_RANDOM_PARAMS
+ Smallexport= .05D0,
+ Bigexport= 0.3D0,
+ smallkinhpar= 3D-3,
+#
+ oldTwoGrazers= .TRUE.,
+#
+ GrazeFast= 7.2337962962962966D-06,  ! 1.25/(2*day),
+ GrazeSlow= 2.066798941798942D-06,   ! 1.25/(7*day),
+ diatomgraz= 0.85D0,
+ coccograz=  0.85D0,
+ olargegraz= 0.9D0,
+ ExGrazfracbig=   0.6D0,
+ ExGrazfracsmall= 0.3D0,
+ ZooexfacSmall= 0.1D0,
+ ZooexfacBig=   0.5D0,
+ val_R_PICPOC= 0.8D0,
+ kgrazesat_val= 10.2D0,
+ /
+ &GUD_TRAIT_PARAMS
+ /

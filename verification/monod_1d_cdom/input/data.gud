@@ -1,0 +1,58 @@
+ &GUD_FORCING_PARAMS
+ ironFile='../input/input/loc1_FeFlux_monsurf.bin',
+ ironPeriod= -12.
+ gud_inscal_iron= 1000.,
+ gud_chlInitBalanced= .TRUE.,
+#
+#PARFile='../input/input/loc1_PAR_monsurf.bin',
+#
+ OASIM_EdFile( 1)='../input/input/loc1_oasim_edp01_below.bin',
+ OASIM_EdFile( 2)='../input/input/loc1_oasim_edp02_below.bin',
+ OASIM_EdFile( 3)='../input/input/loc1_oasim_edp03_below.bin',
+ OASIM_EdFile( 4)='../input/input/loc1_oasim_edp04_below.bin',
+ OASIM_EdFile( 5)='../input/input/loc1_oasim_edp05_below.bin',
+ OASIM_EdFile( 6)='../input/input/loc1_oasim_edp06_below.bin',
+ OASIM_EdFile( 7)='../input/input/loc1_oasim_edp07_below.bin',
+ OASIM_EdFile( 8)='../input/input/loc1_oasim_edp08_below.bin',
+ OASIM_EdFile( 9)='../input/input/loc1_oasim_edp09_below.bin',
+ OASIM_EdFile(10)='../input/input/loc1_oasim_edp10_below.bin',
+ OASIM_EdFile(11)='../input/input/loc1_oasim_edp11_below.bin',
+ OASIM_EdFile(12)='../input/input/loc1_oasim_edp12_below.bin',
+ OASIM_EdFile(13)='../input/input/loc1_oasim_edp13_below.bin',
+ OASIM_EsFile( 1)='../input/input/loc1_oasim_esp01_below.bin',
+ OASIM_EsFile( 2)='../input/input/loc1_oasim_esp02_below.bin',
+ OASIM_EsFile( 3)='../input/input/loc1_oasim_esp03_below.bin',
+ OASIM_EsFile( 4)='../input/input/loc1_oasim_esp04_below.bin',
+ OASIM_EsFile( 5)='../input/input/loc1_oasim_esp05_below.bin',
+ OASIM_EsFile( 6)='../input/input/loc1_oasim_esp06_below.bin',
+ OASIM_EsFile( 7)='../input/input/loc1_oasim_esp07_below.bin',
+ OASIM_EsFile( 8)='../input/input/loc1_oasim_esp08_below.bin',
+ OASIM_EsFile( 9)='../input/input/loc1_oasim_esp09_below.bin',
+ OASIM_EsFile(10)='../input/input/loc1_oasim_esp10_below.bin',
+ OASIM_EsFile(11)='../input/input/loc1_oasim_esp11_below.bin',
+ OASIM_EsFile(12)='../input/input/loc1_oasim_esp12_below.bin',
+ OASIM_EsFile(13)='../input/input/loc1_oasim_esp13_below.bin',
+ OASIMPeriod= -12.,
+ /
+ &GUD_PARAMS
+ gud_seed=11231,
+ gud_read_phos= T,
+ /
+ &GUD_RADTRANS_PARAMS
+ gud_selectSolz=0,
+ gud_waterabsorbFile='abw25par.dat',
+ gud_phytoabsorbFile='optics_phyto_9_bandave25.dat',
+ gud_particleabsorbFile='optics_detritus_3bb.dat',
+#gud_aCDOMFile='aCDOM13amtVK2006.dat',
+ gud_radtrans_kmax=22,
+ gud_waveband_edges=400,412.5,437.5,462.5,487.5,512.5,537.5,562.5,587.5,612.5,637.5,662.5,687.5,700,
+ gud_waveband_centers=400,425,450,475,500,525,550,575,600,625,650,675,700,
+ /
+ &GUD_CDOM_PARAMS
+ /
+ &GUD_RANDOM_PARAMS
+ oldTwoGrazers= .TRUE.,
+ diatom_growfac= 1.0,
+ /
+ &GUD_TRAIT_PARAMS
+ /

@@ -1,0 +1,23 @@
+ &GUD_FORCING_PARAMS
+ gud_chlInitBalanced=.TRUE.,
+ ironFile= '../input/input/loc1_FeFlux_monsurf.bin',
+ PARFile=  '../input/input/loc1_PAR_monsurf.bin',
+ ironPeriod= 2592000.,
+ ironStartTime= 1296000.,
+ PARPeriod=  2592000.,
+ PARStartTime= 1296000.,
+ gud_inscal_iron= 1000.,              ! mol Fe/m2/s
+ gud_inscal_PAR= 11.574074074074074,  ! Ein/m2/d
+ /
+ &GUD_PARAMS
+ gud_seed= 11231,
+ gud_read_phos=.TRUE.,
+ /
+ &GUD_RADTRANS_PARAMS
+ /
+ &GUD_RANDOM_PARAMS
+ oldTwoGrazers= .TRUE.,
+ diatom_growfac= 1.0,
+ /
+ &GUD_TRAIT_PARAMS
+ /

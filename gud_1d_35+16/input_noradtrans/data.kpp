@@ -1,0 +1,13 @@
+#
+# ***************
+# Open boundaries
+# ***************
+ &KPP_PARM01
+ KPPmixingMaps   = .FALSE.,
+ KPPwriteState   = .TRUE.,
+ kpp_dumpFreq    = 86400.
+ kpp_tavefreq    = 86400.
+ Ricr            = 0.3559
+ Riinfty         = 0.6998
+ &
+

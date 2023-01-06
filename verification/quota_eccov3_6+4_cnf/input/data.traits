@@ -1,0 +1,14 @@
+ &GUD_TRAITS 
+ EXPORTFRACMort(7)= .2,
+ EXPORTFRACMort2(7)= .2,
+
+ PALAT= 100*0.0 ,
+ PALAT(1,10)= 1.0,
+ PALAT(2,10)= 1.0,
+ PALAT(3, 8)= 1.0,
+ PALAT(4, 7)= 1.0,
+ PALAT(5,10)= 1.0,
+ PALAT(6, 9)= 1.0,
+
+ ASSEFF= 100*0.5 ,
+ &

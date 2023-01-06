@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+import sys
+import os
+import re
+import string
+
+digits = string.digits + string.lowercase + string.uppercase
+
+def iofmt(i):
+    if i < 100:
+        return '{:02d}'.format(i)
+    elif i < 620:
+        a,b = divmod(i-100, 52)
+        return '{}{}'.format(a, digits[10+b])
+    else:
+        a,b = divmod(i-620, 62)
+        return '{}{}'.format(digits[10+a], digits[b])
+    
+params = {}
+
+print ' &diagnostics_list'
+
+ifile = 0
+for line in sys.stdin:
+    line = line.strip()
+    if line == '':
+        continue
+    if line[-1] == ':':
+        ifile += 1
+        idiag = 1
+        fname = line[:-1]
+        print " filename({})= '{}',".format(ifile, fname)
+        for k,v in params.items():
+            print ' {}({})= {},'.format(k, ifile, v)
+    elif '=' in line:
+        k,v = line.split('=')
+        params[k] = v
+    else:
+        p = line._formatter_parser()
+        names = []
+        fmts = []
+        lo,hi = None,None
+        for s,rg,f,_ in p:
+            names.append(s)
+            if rg is not None:
+                lo,hi = map(int, rg.split('-'))
+                if f == 'io':
+                    fmt = iofmt
+                else:
+                    f = '{:%s}'%f
+                    fmt = lambda x,f=f: f.format(x)
+            else:
+                fmt = None
+            fmts.append(fmt)
+
+        if lo is not None:
+            for i in range(lo, hi+1):
+                name = ''
+                for s,fmt in zip(names, fmts):
+                    name += s
+                    if fmt is not None:
+                        name += fmt(i)
+
+                print " fields({},{})= '{:<8s}',".format(idiag, ifile, name)
+                idiag += 1
+        else:
+            print " fields({},{})= '{:<8s}',".format(idiag, ifile, ''.join(names))
+            idiag += 1
+
+print ' &'
+print ' &diag_statis_parms'
+print ' &'
+            
+
+    

@@ -1,0 +1,17 @@
+Radiative transfer routines
+===========================
+
+sun_sfcsolz            computes solar zenith angle at surface given location and time
++- sun_localvec        creates arrays of up, north, and east vectors for fixed locations
++- sun_sunmod          computes solar zenith angle from date, time and location vector
+   +- sun_sun2000      computes the Sun vector in geocentric inertial 
+   |  +- sun_jd        converts calendar date to Julian day
+   |  +- sun_ephparms  computes ephemeris parameters used by other Mission
+   |  +- sun_nutate    computes the nutation in longitude and the obliquity
+   +- sun_gha2000      computes the Greenwich hour angle in degrees for the
+      +- sun_jd        ./.
+      +- sun_ephparms  ./.
+      +- sun_nutate    ./.
+
+sun_sfcrmud   computes average cosine for direct irradiance
+

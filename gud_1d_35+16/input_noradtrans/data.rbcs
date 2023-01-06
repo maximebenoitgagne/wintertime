@@ -1,0 +1,17 @@
+# RBCS package parameters:
+ &RBCS_PARM01
+  relaxMaskFile(3)='input/rbcs_mask.32bits.bin',
+ &
+
+# RBCS for pTracers (read this namelist only when ptracers pkg is compiled)
+ &RBCS_PARM02
+  useRBCptrnum(4)    = .TRUE.,
+  useRBCptrnum(5)    = .TRUE.,
+  useRBCptrnum(6)    = .TRUE.,
+  tauRelaxPTR(4)     = 2592000.,
+  tauRelaxPTR(5)     = 2592000.,
+  tauRelaxPTR(6)     = 2592000.,
+  relaxPtracerFile(4)='input/1D_BB_NO3_GE_spring.delZ1016mm.32bits.bin',
+  relaxPtracerFile(5)='input/1D_BB_PO4_GE_spring.delZ1016mm.32bits.bin',
+  relaxPtracerFile(6)='input/1D_BB_Si_GE_spring.delZ1016mm.32bits.bin',
+ &

@@ -1,0 +1,130 @@
+#!/usr/bin/env python
+import sys
+import os
+import re
+
+undef = ['-', 'UNDEF', 'UNDEF_RL']
+denomd = dict(pcmax=86400.,
+              mort=86400.,
+              mort2=86400.,
+              wsink=86400.,
+              grazemax=86400.,
+              acclimtimescl=86400.,
+              vmax_nh4=86400.,
+              vmax_no2=86400.,
+              vmax_no3=86400.,
+              vmax_n=86400.,
+              vmax_po4=86400.,
+              vmax_sio2=86400.,
+              vmax_fet=86400.,
+             )
+
+def expand(line, denom):
+    res = []
+    for item in line.rstrip(', ').split(','):
+        v = item.strip().split('*')
+        try:
+            mul,val = v
+        except ValueError:
+            mul = 1
+            val, = v
+        if val == '-999999999':
+            val = undef[0]
+        if '.' in val or 'E' in val:
+            try:
+                f = float(val)
+            except ValueError:
+                pass
+            else:
+                if f == -999999999.:
+#                    val = '-999999999.'
+                    val = undef[1]
+                elif f == 123456.7:
+                    val = undef[2]
+                else:
+                    if denom is not None:
+                        f *= denom
+                    val = '{:.8G}'.format(f)
+                    if '.' not in val and 'E' not in val:
+                        val = val + '.'
+                    val = re.sub(r'E([+-])0+', r'E\1', val)
+                    if denom is not None:
+                        val += '/{}'.format(denom)
+        res.extend(int(mul)*[val])
+    return res
+        
+def format(line):
+    res = []
+    for item in line.split(','):
+        v = item.strip().split('*')
+        try:
+            mul,val = v
+        except ValueError:
+            mul = 1
+            val, = v
+        if val == '-999999999':
+            val = undef[0]
+        if '.' in val or 'E' in val:
+            try:
+                f = float(val)
+            except ValueError:
+                pass
+            else:
+                if f == -999999999.:
+#                    val = '-999999999.'
+                    val = undef[1]
+                elif f == 123456.7:
+                    val = undef[2]
+                else:
+                    val = '{:.8G}'.format(f)
+                    if '.' not in val and 'E' not in val:
+                        val = val + '.'
+                    val = re.sub(r'E([+-])0+', r'E\1', val)
+        if int(mul) > 1 and ('.' in val or 'E' in val):
+            res.append('{}*{}'.format(mul, val))
+        else:
+            res.extend(int(mul)*[val])
+    return ' ' + ', '.join(res).rstrip()
+        
+args = sys.argv[1:]
+if '-0' in args:
+    args.remove('-0')
+    undef = ['0'] + 2*['0.']
+
+leg = None
+with args and open(args[0]) or sys.stdin as f:
+    cur = ''
+    for line in f:
+        if line.lstrip()[:1] in '&/' or '=' in line:
+            if cur:
+                if leg is None:
+                    n = cur.count(',')
+                    leg = ''.join('{:2d},'.format(i)[-3:] for i in range(1, n+1))
+                    print '#          ', leg
+#                name,val = cur.split('=')
+#                if name.strip().lower() in ['palat', 'asseff']:
+#                    idx = cur.index('=') + 1
+#                    v = expand(cur[idx:].strip())
+                idx = cur.index('=') + 1
+                name = cur[:idx-1].strip().lower()
+                denom = denomd.get(name, None)
+                v = expand(cur[idx:].strip(), denom)
+                if len(v) > n or denom is not None:
+                    print '{:12s}'.format(cur[:idx]) + ' '.join('{:6s}'.format(x+',') for x in v[:n]).rstrip()
+                    idx = max(12, idx)
+                    for i in range(1, -(-len(v)//n)):
+                        print idx*' ' + ' '.join('{:6s}'.format(x+',') for x in v[i*n:(i+1)*n]).rstrip()
+                    print
+                else:
+                    print cur
+        if line.lstrip()[:1] in '&/':
+            print line.rstrip()
+            cur = ''
+        elif '=' in line:
+            i = line.index('=') + 1
+            cur = '{:12s}'.format(line[:i]) + format(line[i:])
+        else:
+            cur += format(line)
+
+if cur:
+    print cur

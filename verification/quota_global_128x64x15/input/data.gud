@@ -1,0 +1,81 @@
+ &GUD_FORCING_PARAMS
+ iceFile='../input/input/nasa_icefraction_mth-2d.bin',
+ ironFile='../input/input/mahowald2009_solubile_current_smooth_oce_mth-2d.bin',
+ PARFile='../input/input/par_ecco.bin_mth-2d.bin',
+# NO3_RelaxFile='/home/stephd/Input/input_ecco/lev01_nitrate_mth-3d.bin',
+# gud_relaxScale=31104000.,
+ icePeriod= -12.,
+ ironPeriod= -12.,
+ PARPeriod= -12.,
+ gud_inscal_iron= 1000.,
+ gud_inscal_PAR= 11.574074074074,
+#gud_PO4_fluxFile= '../input/input/ann_nphos_flux.bin',
+#gud_NO3_fluxFile= '../input/input/ann_nnitr_flux.bin',
+#gud_Si_fluxFile= '../input/input/ann_nsil_flux.bin',
+ /
+ &GUD_PARAMS
+ gud_seed= 56,
+ gud_linFSConserve= .TRUE.,
+ KDOC=  2.3148148148148148e-07,  ! .02/day
+ KDON=  2.3148148148148148e-07,
+ KDOP=  2.3148148148148148e-07,
+ KDOFe= 2.3148148148148148e-07,
+ KPOC=  4.6296296296296297e-07,  ! .04/day
+ KPON=  4.6296296296296297e-07,
+ KPOP=  4.6296296296296297e-07,
+ KPOFe= 4.6296296296296297e-07,
+ KPOSi= 3.819444444444444e-08,   ! .0033/day,
+# alpfe= 0.05D0,  ! 1D model
+ alpfe= 1.0D0,   ! 3D model
+ scav= 5.092592592592593e-08  ! 4.4D-3/day,
+ freefemax= .1D-3
+ depthfesed= 1000D0,
+ katten_chl= .03D0,
+ PARmin= 0.1D0,
+ PAR_oxi = 0.0,
+ phygrazmin= 0.,
+#knita=0.,
+ synthcost= 2.33D0,
+ phymin= 0.,
+ inhib_graz_exp= 1.0,
+ /
+ &GUD_RADTRANS_PARAMS
+ /
+ &GUD_RANDOM_PARAMS
+ /
+ &GUD_TRAIT_PARAMS
+ grp_pp_sig(:)=5*0.5,
+#                        P  S  E  D  Z
+ grp_nplank(:)=          2, 3, 5,15,30,
+ grp_photo(:)=           1, 1, 1, 1, 0,
+ grp_pred(:)=            0, 0, 0, 0, 1,
+ grp_prey(:)=            1, 1, 1, 1, 0,
+ grp_hasSi(:)=           0, 0, 0, 0, 0,
+ grp_hasPIC(:)=          0, 0, 0, 0, 0,
+ grp_DIAZO(:)=           0, 0, 0, 0, 0,
+ grp_useNH4(:)=          1, 1, 1, 1, 0,
+ grp_useNO2(:)=          1, 1, 1, 1, 0,
+ grp_useNO3(:)=          1, 1, 1, 1, 0,
+ grp_combNO(:)=          1, 1, 1, 1, 0,
+ grp_tempMort(:)=        0, 0, 0, 0, 1,
+ grp_tempMort2(:)=       0, 0, 0, 0, 1,
+ grp_ExportFracPreyPred(1:4,5)= 2*.19999998807907104, 2*.5,
+ grp_ExportFracMort(:)=     2*.19999998807907104, 3*.5,
+ grp_ExportFracMort2(:)=     2*.19999998807907104, 3*.5,
+ grp_mQyield(:)= 4*1.915E-5,
+# zoo don't sink, have Chl
+ grp_R_ChlC(5)= 0.,
+ biovol0(:)= .125, .5, 4., 128., 8.,
+ biovolfac(:)= 5*2.,
+# max photosynthesis rates
+ a_vmax_DIC(:)= 1., 1.4, 2.1, 3.8,
+ a_vmax_DIC_denom(:)= 4*86400.,
+ a_biosink(5)= 0.,
+# zoo have approx Redfield N:C
+ a_qmax_n(5)=0.1510,
+ b_qmax_n(5)=0.0,
+ a_qmin_n(5)=0.0755,
+ b_qmin_n(5)=0.0,
+# completely turn off P
+ grp_R_PC(:)= 0., 0., 0., 0., 0.,
+ /

@@ -1,0 +1,106 @@
+########################
+ &GUD_FORCING_PARAMS
+ gud_chlInitBalanced= T,
+ ironFile='../input/input/loc1_mahowald2009_solubile_current_smooth_oce_mth-2d.bin',
+ PARFile='../input/input/loc1_ecco_oasim_total_below_oneband_einm2d.bin',
+ windFile='../input/input/loc1_tren_speed_mth-2d.bin',
+ ironPeriod= -12.,
+ PARPeriod= -12.,
+ windPeriod= -12.,
+ gud_inscal_iron= 1000.,
+ gud_inscal_PAR= 11.574074074074,
+ /
+########################
+ &GUD_PARAMS
+ diaz_ini_fac= 0.1,
+ gud_seed= 56,
+ gud_read_phos= F,
+ tempCoeffArr= 0.8,
+ PARmin= 1.0,
+ alpfe= 1.0,
+ freefemax = .1E-4,
+ depthfesed= 7000.,
+ scav_rat= 1.73611111111111111111E-7,
+ kdoc=  3.8580246913580247E-07,  ! 1/30day
+ kdop=  3.8580246913580247E-07,  ! 1/30day
+ kdon=  3.8580246913580247E-07,  ! 1/30day
+ kdofe= 3.8580246913580247E-07,  ! 1/30day
+ kPOC=  3.8580246913580247E-07,  ! 1/30day
+ kPOP=  3.8580246913580247E-07,  ! 1/30day
+ kPON=  3.8580246913580247E-07,  ! 1/30day
+ kPOFe= 3.8580246913580247E-07,  ! 1/30day
+ kPOSi= 7.7160493827160493E-08,  ! 1/150day
+ phygrazmin= 120E-10,
+ gud_atmos_pCO2= 278E-6,
+ inhib_graz_exp= 1.0,
+ /
+########################
+ &GUD_RADTRANS_PARAMS
+ /
+########################
+ &GUD_RANDOM_PARAMS
+ /
+########################
+ &GUD_TRAIT_PARAMS
+#                        D  l  s  P  T  C  S  Z
+ grp_nplank(:)=          1, 1, 1, 1, 1, 1, 0, 2,
+ grp_photo(:)=           1, 1, 1, 1, 1, 1, 1, 0,
+ grp_pred(:)=            0, 0, 0, 0, 0, 0, 0, 1,
+ grp_prey(:)=            1, 1, 1, 1, 1, 1, 0, 0,
+ grp_hasSi(:)=           1, 0, 0, 0, 0, 0, 0, 0,
+ grp_hasPIC(:)=          0, 0, 0, 0, 0, 1, 0, 0,
+ grp_DIAZO(:)=           0, 0, 0, 0, 1, 0, 0, 0,
+ grp_useNH4(:)=          1, 1, 1, 1, 1, 1, 1, 0,
+ grp_useNO2(:)=          1, 1, 1, 1, 1, 1, 1, 0,
+ grp_useNO3(:)=          1, 1, 1, 1, 1, 1, 1, 0,
+ grp_combNO(:)=          1, 1, 1, 1, 1, 1, 1, 0,
+ grp_tempMort(:)=        1, 1, 1, 1, 1, 1, 1, 1,
+ grp_tempMort2(:)=       1, 1, 1, 1, 1, 1, 1, 1,
+ grp_Xmin(:)= 7*120E-20,
+ grp_mqyield(:)= 7*5E-5,
+ grp_chl2cmax(:)= 7*.3,
+ grp_acclimtimescl(:)= 7*5.7870370370370370E-6,
+ biovol0(:)= 441.0623631214372, 441.0623631214372, 0.3685530418524794, 0.11310973893337056,
+             441.0623631214372, 12.749700999437144, 0.11310973893337056,
+             1.2008810730146715,
+ biovolfac(:)= 7*3.2583670100200877, 3899.4198667654337
+ a_biosink(:)= 7*6.951416635391563E-7, 0.,  ! .05*dm**.85
+ b_biosink(:)= 7*.2833333333333333, 0.,
+ a_vmax_DIC(1)= 8.680555555555556E-5,   ! 7.5/day
+ a_vmax_DIC(2)= 2.3148148148148147E-5,  ! 2.0/day
+ a_vmax_DIC(3)= 6.944444444444444E-6,   ! 0.6/day
+ a_vmax_DIC(4)= 6.944444444444444E-6,   ! 0.6/day
+ a_vmax_DIC(5)= 1.0416666666666666E-5,  ! 0.9/day
+ a_vmax_DIC(6)= 3.472222222222222E-5,   ! 3.0/day
+ a_vmax_DIC(7)= 0.0,
+ b_vmax_DIC(:)= -0.15, -0.15, 0.07, 0.07, -0.15, -0.15, 0.07, 0.,
+#
+ gud_effective_ksat= T,
+ gud_select_kn_allom= 1,
+ a_vmax_NO3(:)= 7*5.902777777777778e-06,  ! 0.51/day
+ a_qmax_n(:)=   7*0.25,
+ a_qmin_n(:)=   7*0.07,
+ a_kn_NO3(:)=   7*0.17,
+ b_vmax_NO3(:)= 7*-0.27,
+ b_qmax_n(:)=   7*-0.13,
+ b_qmin_n(:)=   7*-0.17,
+ b_kn_NO3(:)=   7*0.27,
+#
+ grp_ExportFracMort(:)= .4, .4, .1, .1, .4, .4,
+ grp_ExportFracMort2(:)= .4, .4, .1, .1, .4, .4,
+ grp_ExportFracPreyPred(1:7,8)= 7*.8,
+ grp_R_ChlC(8)= 0.,
+ a_graz(8)= 2.3148148148148147e-05,  ! 2/day
+ b_graz(8)= -.16,
+#
+ grp_mort(:)= 7*1.6534391534391533e-06, 2.3148148148148148e-07,  ! 1/7days, 1/50days
+ grp_mort2(:)= 7*0., 9.259259259259258e-07,  ! 16*.6/120/day
+ grp_tempcoeff2= 7*.0003,
+ grp_R_PC(:)= 8*0.008333333333333333,
+ grp_R_FeC(:)= 4*0.008333333333333333E-3, 0.03333333333333333E-3, 3*0.008333333333333333E-3,
+ grp_R_NC(:)= 4*0.13333333333333333, 0.3333333333333333, 3*0.13333333333333333,
+ grp_R_SiC(:)= 0.13333333333333333, 7*0.,
+ grp_R_PICPOC(:)= 5*0., .8, 2*0.,
+ a_kg(8)= 6.,
+ b_kg(8)= 0.,
+ /

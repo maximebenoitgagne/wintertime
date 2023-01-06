@@ -1,0 +1,8 @@
+#!/bin/bash
+exp=$1
+if [ -z "$exp" ]; then
+  echo mknames EXP
+  exit
+fi
+grep _names $exp/run/data.ptracers |sed -e "s/^.*= *'//" -e "s/',$//" > $exp/names
+

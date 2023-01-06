@@ -1,0 +1,7 @@
+gud_1d_35+16/input_noradtrans/input/GE_mod_var.nc filter=lfs diff=lfs merge=lfs -text
+verification/monod_baltic_76x72x24/input/pickup_ptracers.0000188388.data filter=lfs diff=lfs merge=lfs -text
+*chl.*.nc filter=lfs diff=lfs merge=lfs -text
+*tave.*.nc filter=lfs diff=lfs merge=lfs -text
+*car.*.nc filter=lfs diff=lfs merge=lfs -text
+data/DataS1_observations_IBCAO_1min_bathy.mat filter=lfs diff=lfs merge=lfs -text
+data/DataS4_output_nemo_lim3/GE_mod_var.nc filter=lfs diff=lfs merge=lfs -text

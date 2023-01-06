@@ -1,0 +1,88 @@
+# Call tree and entry points for gud package ("cat README" to see bold)
+
+the_model_main 
+  initialise_fixed 
+    packages_readparms 
+      gchem_readparms 
+        [1mgud_readparms[0m 
+          gud_readgenparams 
+          gud_readtraitparams 
+    packages_init_fixed 
+      gchem_init_fixed 
+        [1mgud_init_fixed[0m 
+          gud_exf_init_fixed 
+          gud_diagnostics_init 
+          gud_random_init 
+          gud_init_traits 
+          gud_generate_allometric 
+          gud_generate_random
+            gud_random
+            gud_random_normal
+          gud_readtraits
+    packages_check 
+      gchem_check 
+        [1mgud_check[0m 
+  the_main_loop 
+    initialise_varia 
+      packages_init_variables 
+        gchem_init_vari 
+          [1mgud_init_varia[0m 
+            gud_exf_init_varia 
+            gud_read_pickup 
+            gud_init_chl 
+              gud_light_radtrans 
+                gud_insol 
+                gud_radtrans_direct 
+                  gud_solve_tridiag 
+              gud_light 
+                gud_insol
+            gud_surfforcing_init 
+              gud_carbon_coeffs 
+              gud_calc_pco2_approx 
+    main_do_loop 
+      forward_step 
+        load_fields_driver 
+          gchem_fields_load 
+            [1mgud_fields_load[0m 
+              gud_exf_load 
+        gchem_forcing_sep 
+          [1mgud_conserve_surface[0m 
+          [1mgud_cons[0m 
+          [1mgud_forcing[0m 
+            gud_light_radtrans...
+            gud_light...
+            gud_surfforcing 
+              gud_carbon_coeffs
+              gud_calc_pco2_approx
+            gud_fe_chem 
+            gud_tempfunc 
+            gud_model 
+            gud_grazing 
+            gud_sinking 
+        do_write_pickup 
+          packages_write_pickup 
+            gchem_write_pickup 
+              [1mgud_write_pickup[0m 
+
+# not called:
+
+[1minvnormal[0m 
+[1mgud_calc_pco2[0m 
+
+
+# partly generated from embedded templates using tools/python/cog:
+
+gud_check.F             # uses check.py
+GUD_EXF.h               # parameters in exf.py
+gud_exf_init_fixed.F
+gud_exf_init_varia.F
+gud_exf_load.F
+gud_readparms.F
+GUD_GENPARAMS.h         # parameters in params.py
+gud_readgenparams.F
+GUD_TRAITPARAMS.h       # parameters in traitparams.py
+gud_readtraitparams.F
+GUD_TRAITS.h            # parameters in traits.py
+gud_readtraits.F
+gud_init_traits.F
+

@@ -1,0 +1,5 @@
+axes.labelsize:  20
+legend.fontsize: 20
+lines.markersize: 9
+xtick.labelsize: 20
+ytick.labelsize: 20

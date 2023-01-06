@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\def\ee{{\mathrm{e}}}
+\def\|#1|{{\text{#1}}}
+
+\begin{document}
+
+\paragraph{quota\_plankton} (without SWITCH3)
+
+\noindent
+Fluxes for resource $R$:
+\begin{align}
+  F(R^{\|P|}_j \to R^{\|P|}_i)   &= g_{j,i} Q^R_j  \\
+  F(R^{\|P|}_i \to \|PO|R)
+    &= \sum_j g_{j,i} Q^R_j \left( 1 - \|asseff|_{j,i} r^R_i \right) \|expFrac|_j  \\
+  F(R^{\|P|}_i \to \|DO|R)
+    &= \sum_j g_{j,i} Q^R_j \left( 1 - \|asseff|_{j,i} r^R_i \right) (1 - \|expFrac|_j)
+\end{align}
+where
+\begin{gather}
+  g_{j,i} = t_i
+                \frac{S^{\|P|}}{S^{\|P|}+S^{\|Z|}}
+                \frac{\|palat|_{j,i} X_j}
+                     {\bigl[\sum_{j'} \|palat|_{j',i} X_{j'}\bigr]_{\|phygrazmin|}}
+  \qquad\text{for } j\in\|P|
+\\
+  g_{j,i} = t_i
+                \frac{S^{\|Z|}}{S^{\|P|}+S^{\|Z|}}
+                \frac{\|palat|_{j,i} X_j}
+                     {\bigl[\sum_{j'} \|palat|_{j',i} X_{j'}\bigr]_{\|phygrazmin|}}
+  \qquad\text{for } j\in\|Z|
+\\
+  t_i = \|grazemax|_i \gamma^{\|T|}_i X_i 
+    \frac{p_i^h}{p_i^h+k^h_i}
+    (1 - \ee^{-I p_i})
+\\
+  p_i = \sum_j \|palat|_{j,i} X_j
+\\
+  S^{\|P|}_i = \sum_{j\in\|P|} \|palat|_{j,i} X_j^2
+\\
+  S^{\|Z|}_i = \sum_{j\in\|Z|} \|palat|_{j,i} X_j^2
+\\
+  r^R_i = \left[ \frac{Q^{R\max}_i-Q^R_i}{Q^{R\max}_i-Q^{R\min}_i} \right]_0^1
+\end{gather}
+
+
+\paragraph{darwin\_grazing\_ben} (formerly SWITCH3; for single zooplankton)
+
+\noindent
+Fluxes for resource $R$:
+\begin{align}
+  F(R^{\|P|}_j \to R^{\|Z|}_i)   &= g_{j,i} Q^R_j  \\
+  F(R^{\|Z|}_i \to \|PO|R)
+    &= \sum_j g_{j,i} Q^R_j \left( 1 - \|asseff|_{j,i} r^R_i \right) \|expFrac|_j  \\
+  F(R^{\|Z|}_i \to \|DO|R)
+    &= \sum_j g_{j,i} Q^R_j \left( 1 - \|asseff|_{j,i} r^R_i \right) (1 - \|expFrac|_j)
+\end{align}
+where
+\begin{gather}
+  g_{j,i} = t_i \frac{(\|palat|_{j,i} X_j)^2}
+                     {\bigl[\sum_{j'} (\|palat|_{j',i} X_{j'})^2\bigr]_{\|phygrazmin|}}
+\\
+  t_i = \|grazemax|_i \gamma^{\|T|}_i X_i 
+    \frac{p_i^h}{p_i^h+k^h_i}
+    (1 - \ee^{-I p_i})
+\\
+  p_i = \Bigl[ \sum_j \|palat|_{j,i} X_j - \|phygrazmin| \Bigr]_0
+\\
+  r^R_i = \left[ \frac{Q^{R\max}_i-Q^R_i}{Q^{R\max}_i-Q^{R\min}_i} \right]_0^1
+\end{gather}
+
+
+\paragraph{darwin\_grazing3} (as in monod; enforces zooplankton stoichiometry)
+
+\noindent
+Fluxes for resource $R$:
+\begin{align}
+  F(R^{\|P|}_j \to R^{\|Z|}_i)
+    &= g_{j,i} Q^R_j  \\
+  F(R^{\|Z|}_i \to \|PO|R) 
+    &= \sum_j g_{j,i} \left( Q^R_j - Q^R_i \|asseff|_{j,i} \right) \|expFrac|_i       \\
+  F(R^{\|Z|}_i \to \|DO|R) 
+    &= \sum_j g_{j,i} \left( Q^R_j - Q^R_i \|asseff|_{j,i} \right) (1 - \|expFrac|_i)
+\end{align}
+where
+\begin{gather}
+  g_{j,i} = t_i \frac{\|palat|_{j,i} X_j}
+                     {\bigl[\sum_{j'} \|palat|_{j',i} X_{j'}\bigr]_{\|phygrazmin|}}
+\\
+  t_i = \|grazemax|_i \gamma^{\|T|}_i X_i 
+    \frac{p_i^h}{p_i^h+k^h_i}
+    (1 - \ee^{-I p_i})
+\\
+  p_i = \Bigl[ \sum_j \|palat|_{j,i} X_j - \|phygrazmin| \Bigr]_0
+\end{gather}
+
+
+\end{document}

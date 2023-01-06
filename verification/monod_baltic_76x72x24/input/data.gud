@@ -1,0 +1,30 @@
+ &GUD_FORCING_PARAMS
+  useGudYearlyFields= .TRUE.,
+# iceFile='gud/nasa_icefraction_mth-2d.bin',
+#
+  ironFile='../input/input/Fe_const_76x72_12_',
+# emulate silly 30-day period from monod
+  ironStartDate1=19920116,
+  ironStartDate2=000000,
+  ironPeriod= 2592000.,
+  gud_inscal_iron= 1000.,
+#
+# gud_PARFile='gud/par_ecco.bin_mth-2d.bin',
+# gud_nutWVelFile='',
+ /
+ &GUD_INTERP_PARAMS
+  iron_interpMethod= 0,
+ /
+ &GUD_PARAMS
+  gud_seed=11231,
+#  gud_read_phos=T,
+  PARmin= 1.0,
+ /
+ &GUD_RADTRANS_PARAMS
+ /
+ &GUD_RANDOM_PARAMS
+ oldTwoGrazers= .TRUE.,
+ diatom_growfac= 1.0,
+ /
+ &GUD_TRAIT_PARAMS
+ /

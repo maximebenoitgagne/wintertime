@@ -1,0 +1,14 @@
+&OFFLINE_PARM01
+  SaltFile= 'input/NEMO_GE_2016/SALT',
+  ThetFile= 'input/NEMO_GE_2016/THETA',
+  KPP_DiffSFile='input/NEMO_GE_2016/KPPdiffS',
+  KPP_ghatKFile='input/NEMO_GE_2016/KPPghat',
+ &end
+
+ &OFFLINE_PARM02
+  offlineIter0=486216,
+  deltaToffline=2400.,
+  offlineForcingPeriod=86400.,
+  offlineForcingCycle=31536000.,
+  offlineLoadPrec=32,
+ &end

@@ -1,0 +1,24 @@
+ &GUD_TRAITS 
+ EXPORTFRACMort(13)= .2,
+ EXPORTFRACMort2(13)= .2,
+ wsink(7)=1.157407407407407e-04, ! m/s from 10m/day, same as POM (wN_sink, wC_wink, wP_sink)
+ wsink(9)=1.157407407407407e-04, ! m/s from 10m/day, same as POM (wN_sink, wC_wink, wP_sink)
+ grazemax(17)= 1.157407407407407e-06, !/s from 0.1/day max grazing on B
+ kgrazesat(17)= 0.1, !mmol/m3 B
+
+ PALAT= 100*0.0 ,
+ PALAT(1,16)= 1.0,
+ PALAT(2,16)= 1.0,
+ PALAT(3,14)= 1.0,
+ PALAT(4, 13)= 1.0,
+ PALAT(5,16)= 1.0,
+ PALAT(6,15)= 1.0,
+ PALAT(7,17)= 1.0,
+ PALAT(8,17)= 1.0,
+ PALAT(9,17)= 1.0,
+ PALAT(10,17)= 1.0,
+ PALAT(11,17)= 1.0,
+ PALAT(12,17)= 1.0,
+
+ ASSEFF= 100*0.5 ,
+ &

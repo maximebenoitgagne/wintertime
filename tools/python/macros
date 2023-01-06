@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+import sys
+import re
+
+defre = re.compile(r'^# *(?:define|undef)  *([a-zA-Z0-9_]*) *([^ ]+)?')
+
+ifre = re.compile(r'^# *(?:el)?if')
+ifdefre = re.compile(r'^# *(?:el)?ifn?def *([a-zA-Z0-9_]*)\b')
+testre = re.compile(r'(?=\bdefined *\( *([a-zA-Z0-9_]*) *\))')
+
+args = sys.argv[1:]
+
+defd = set()
+sets = set()
+used = set()
+for fname in args:
+    with open(fname) as f:
+        for l in f:
+            m = defre.match(l[:-1])
+            if m:
+                v = m.group(1)
+                if m.group(2) is not None:
+                    sets.add(v)
+                else:
+                    defd.add(v)
+
+            if not ifre.match(l):
+                continue
+
+            m = ifdefre.match(l)
+            if m:
+                v = m.group(1)
+                used.add(v)
+                continue
+
+            for m in testre.finditer(l):
+                v = m.group(1)
+                used.add(v)
+
+print '\n'.join(sorted(defd.difference(used)))
+
+print
+
+print '\n'.join(sorted(used.difference(defd, sets)))
+
+#print
+#print '\n'.join(sorted(sets))
+

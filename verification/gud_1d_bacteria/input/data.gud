@@ -1,0 +1,101 @@
+########################
+ &GUD_FORCING_PARAMS
+ gud_chlInitBalanced= T,
+ ironFile='../../../data/input_owsm/loc1_FeFlux_monsurf.bin',
+ ironPeriod= -12.,
+ gud_inscal_iron= 1000.,
+ PARFile='../../../data/input_owsm/loc1_PAR_monsurf.bin',
+ PARPeriod= -12.,
+ gud_inscal_PAR= 11.574074074074,
+ /
+########################
+ &GUD_PARAMS
+ diaz_ini_fac= 0.1,
+ gud_linFSConserve= T,
+ gud_seed= 56,
+ gud_read_phos= F,
+ tempCoeffArr= 0.8,
+ PARmin= 0.1,
+ alpfe= 1.0,
+ freefemax = .1E-3,
+ depthfesed= 7000.,
+ scav_rat= 1.73611111111111111111E-7,
+ kdoc=  0,  !3.8580246913580247E-7,  ! 1/30day
+ kdop=  0,  !3.8580246913580247E-7,  ! 1/30day
+ kdon=  0,  !3.8580246913580247E-7,  ! 1/30day
+ kdofe= 0,  !3.8580246913580247E-7,  ! 1/30day
+ kPOC=  0,  !3.8580246913580247E-7,  ! 1/30day
+ kPOP=  0,  !3.8580246913580247E-7,  ! 1/30day
+ kPON=  0,  !3.8580246913580247E-7,  ! 1/30day
+ kPOFe= 0,  !3.8580246913580247E-7,  ! 1/30day
+ kPOSi= 7.7160493827160493E-8,  ! 1/150day
+ phygrazmin= 120E-10,
+ gud_atmos_pCO2= 278E-6,
+ /
+########################
+ &GUD_RADTRANS_PARAMS
+ /
+########################
+ &GUD_RANDOM_PARAMS
+ /
+########################
+ &GUD_TRAIT_PARAMS
+#                        D  l  s  P  T  C  AP AD NP ND B  Z
+ grp_nplank(:)=          1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 5,
+ grp_photo(:)=           1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+ grp_bactType(:)=        0, 0, 0, 0, 0, 0, 1, 2, 1, 2, 0, 0,
+ grp_aerobic(:)=         0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+ grp_denit(:)=           0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0,
+ grp_pred(:)=            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+ grp_prey(:)=            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+ grp_hasSi(:)=           1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ grp_hasPIC(:)=          0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+ grp_DIAZO(:)=           0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+ grp_useNH4(:)=          1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+ grp_useNO2(:)=          1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+ grp_useNO3(:)=          1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+ grp_combNO(:)=          1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+ grp_tempMort(:)=        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ grp_tempMort2(:)=       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ grp_Xmin(:)= 11*120E-20,
+ grp_mqyield(:)= 11*5E-5,
+ grp_chl2cmax(:)= 11*.3,
+ grp_acclimtimescl(:)= 11*.5,
+ grp_acclimtimescl_denom(:)= 11*86400.,
+ logvolbase= -.9465,
+ logvolinc= .513,
+ logvol0ind(:)= 8, 8, 3, 1, 8, 6, 1, 2, 3, 4, 5, 3,
+# biovolfac(:)= 11*3.2583670100200877, 1.,
+ a_biosink(:)= 11*6.951416635391563E-7, 0.,  ! .05*dm**.85
+ b_biosink(:)= 11*.2833333333333333, 0.,
+ a_vmax_DIC(1)= 7.5,
+ a_vmax_DIC(2)= 2.0,
+ a_vmax_DIC(3)= 0.6,
+ a_vmax_DIC(4)= 0.6,
+ a_vmax_DIC(5)= 0.9,
+ a_vmax_DIC(6)= 3.0,
+ a_vmax_DIC(7:11)= 5*0.0,
+ a_vmax_DIC_denom(:)= 11*86400.,
+ b_vmax_DIC(:)= -0.15, -0.15, -0.15, 0.07, -0.15, -0.15, 0.07, 0.07, 0.07, 0.07, 0.07, 0.,
+#
+ gud_effective_ksat= T,
+ gud_select_kn_allom= 1,
+#
+ grp_ExportFracMort(:)= .4, .4, .1, .1, .4, .4, 5*.1, .6
+ grp_ExportFracMort2(:)= .4, .4, .1, .1, .4, .4, 5*.1, .6
+ grp_ExportFracPreyPred(1:11,12)= 11*.8,
+ grp_R_ChlC(12)= 0.,
+ a_graz(12)= 2.6213047103166739E-05,  ! 2/day
+ b_graz(12)= 0.,
+#
+ grp_mort(:)= 6*1.6534391534391533e-06, 5*1.157407407407407e-07, 2.3148148148148148e-07,  ! 1/7days, 0.01/days, 1/50days
+ grp_mort2(:)= 11*0., 9.259259259259258e-07,  ! 16*.6/120/day
+ grp_tempcoeff2= 11*.0003,
+ grp_R_PC(:)= 12*0.008333333333333333,
+ grp_R_FeC(:)= 4*0.008333333333333333E-3, 0.03333333333333333E-3, 7*0.008333333333333333E-3,
+ grp_R_NC(:)= 4*0.13333333333333333, 0.3333333333333333, 7*0.13333333333333333,
+ grp_R_SiC(:)= 0.13333333333333333, 11*0.,
+ grp_R_PICPOC(:)= 5*0., .8, 6*0.,
+ a_kg(12)= 6.,
+ b_kg(12)= 0.,
+ /

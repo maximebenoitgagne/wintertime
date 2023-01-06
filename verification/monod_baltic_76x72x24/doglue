@@ -1,0 +1,4 @@
+#!/bin/bash
+gluemncbig -o grid.nc grid.t00*
+gluemncbig -o darwin.nc darwin.0000188388.t00*
+gluemncbig -o ptracers.nc ptracers.0000188388.t00*

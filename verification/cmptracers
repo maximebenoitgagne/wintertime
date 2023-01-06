@@ -1,0 +1,114 @@
+#!/usr/bin/env python
+import sys
+import os
+import glob
+from scipy.io.netcdf import netcdf_file
+import MITgcmutils as mit
+import numpy as np
+from darwin import iofmt
+from subprocess import call
+from maptracers import mapmonod, mapquota
+
+def dig(r, mx=16):
+    with np.errstate(divide='ignore', invalid='ignore'):
+        d = np.nanmin(-np.log10(abs(r)))
+    return np.isnan(d) and 99 or int(np.maximum(0, np.minimum(mx, d)))
+
+def d(av0, av):
+    with np.errstate(divide='ignore', invalid='ignore'):
+        r = av/av0 - 1.0
+        d = np.nanmin(-np.log10(abs(r)))
+    return np.isnan(d) and 99 or int(np.maximum(0, np.minimum(16, d)))
+
+srcdir = '/home/jahn/darwin3/Darwin2/darwin2/verification'
+
+args = sys.argv[1:]
+try: args.remove('-v')
+except ValueError: values = False
+else:              values = True
+try: args.remove('-i')
+except ValueError: indices = False
+else:              indices = True
+try: args.remove('-q')
+except ValueError: mapper = mapmonod
+else:              mapper = mapquota
+exp, = args
+
+if exp.endswith('.nc'):
+    fname = exp
+    dir,name = os.path.split(fname)
+    exp,_ = os.path.split(dir)
+    _,ext = os.path.splitext(name)
+    _,ext2 = os.path.splitext(_)
+    ext += ext2
+else:
+    ext = '*.nc'
+    dir = '{}/run'.format(exp)
+
+if ext == '.nc':
+    reader = netcdf_file
+else:
+    reader = mit.mnc_files
+
+names0 = np.genfromtxt('{}/{}/names'.format(srcdir, exp), object)
+names = np.genfromtxt('{}/names'.format(exp), object)
+i0s, f0s = mapper(names0, names) #, sys.stderr)
+n = len(names)
+
+gridf = reader('{}/{}/run/grid{}'.format(srcdir, exp, ext))
+hFacC = gridf.variables['HFacC'][:]
+Ac = gridf.variables['rA'][:]
+drf = gridf.variables['drF'][:][:,None,None]
+vol = (hFacC*Ac*drf).sum()
+wet = hFacC != 0
+
+fmt = '{:<6} {:2d} {:2d} {:2d} {:2d}  {:2d} {:2d}'
+if values:
+    fmt += ' {:22.16e} {:22.16e} {:22.16e} {:22.16e}'
+if indices:
+    fmt += '  {ia:<16} {ir:<16}'
+
+nc0 = reader('{}/{}/run/ptracers{}'.format(srcdir, exp, ext))
+nc = reader('{}/ptracers{}'.format(dir, ext))
+#sys.stderr.write('{} {}\n'.format(nc0.variables[names0[0]].dtype, nc.variables[names[0]].dtype))
+if nc0.variables[names0[0]].shape != nc.variables[names[0]].shape:
+    sys.exit('Shape mismatch: {} vs {}'.format(nc0.variables[names0[0]].shape, nc.variables[names[0]].shape))
+
+print fmt.replace('d}', 's}').replace('.16e}', 's}').format('', 'mn', 'mx', 'av', 'sd', 'ab', 'rl',
+           'p0[ab]', 'p[ab]', 'p0[rl]', 'p[rl]', ia='ia', ir='ir')
+for i,i0 in enumerate(i0s):
+    name0 = names0[i0]
+    name = names[i]
+    p0 = f0s[i]*nc0.variables[name0][:]
+    p = nc.variables[name][:]
+    av0 = (p0*Ac*hFacC*drf).sum(-1).sum(-1).sum(-1)/vol
+    av = (p*Ac*hFacC*drf).sum(-1).sum(-1).sum(-1)/vol
+    mn = p[:,wet].min()
+    mx = p[:,wet].max()
+    sd = p[:,wet].std()
+    mn0 = p0[:,wet].min()
+    mx0 = p0[:,wet].max()
+    sd0 = p0[:,wet].std()
+    a = abs(p[:,wet]-p0[:,wet]).max()
+    aa = np.argmax(abs(p[:,wet]-p0[:,wet]))
+    ia = np.unravel_index(np.arange(p0.size).reshape(p0.shape)[:,wet].flat[aa], p0.shape)
+    #ia = np.unravel_index(aa, p0.shape)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        r = np.nanmax(abs(p[:,wet]/p0[:,wet]-1))
+        ar = np.nanargmax(abs(p[:,wet]/p0[:,wet]-1))
+    if np.isnan(ar): ar = 0
+    #ir = np.unravel_index(ar, p0.shape)
+    ir = np.unravel_index(np.arange(p0.size).reshape(p0.shape)[:,wet].flat[ar], p0.shape)
+    print fmt.format(name,
+            d(mn0, mn),
+            d(mx0, mx),
+            d(av0, av),
+            d(sd0, sd),
+            dig(a, mx=99), dig(r),
+            p0.flat[aa],
+            p .flat[aa],
+            p0.flat[ar],
+            p .flat[ar],
+            ia=ia, ir=ir,
+            )
+

@@ -1,0 +1,96 @@
+# Gud diagnostics
+# ==================
+ &diagnostics_list
+#
+  frequency(1) = 3600.,
+  fields( 1,1) = 'TRAC01  ',
+  fields( 2,1) = 'TRAC02  ',
+  fields( 3,1) = 'TRAC03  ',
+  fields( 4,1) = 'TRAC04  ',
+  fields( 5,1) = 'TRAC05  ',
+  fields( 6,1) = 'TRAC06  ',
+  fields( 7,1) = 'TRAC07  ',
+  fields( 8,1) = 'TRAC08  ',
+  fields( 9,1) = 'TRAC09  ',
+  fields(10,1) = 'TRAC10  ',
+  fields(11,1) = 'TRAC11  ',
+  fields(12,1) = 'TRAC12  ',
+  fields(13,1) = 'TRAC13  ',
+  fields(14,1) = 'TRAC14  ',
+  fields(15,1) = 'TRAC15  ',
+  fields(16,1) = 'TRAC16  ',
+  fields(17,1) = 'TRAC17  ',
+  fields(18,1) = 'TRAC18  ',
+  fields(19,1) = 'TRAC19  ',
+  fields(20,1) = 'TRAC20  ',
+  fields(21,1) = 'TRAC21  ',
+  fields(22,1) = 'PAR     ',
+  fields(23,1) = 'PARF    ',
+  fields(24,1) = 'atten   ',
+  fields(25,1) = 'surfPAR ',
+  fields(26,1) = 'exfPAR  ',
+   filename(1) = 'gud',
+#
+ &
+
+# Parameter for Diagnostics of per level statistics:
+#-----------------
+# for each output-stream:
+#  stat_fname(n) : prefix of the output file name (only 8.c long) for
+#outp.stream n
+#  stat_freq(n):< 0 : write snap-shot output every |stat_freq| seconds
+#               > 0 : write time-average output every stat_freq seconds
+#  stat_phase(n)    : write at time = stat_phase + multiple of |stat_freq|
+#  stat_region(:,n) : list of "regions" (default: 1 region only=global)
+#  stat_fields(:,n) : list of diagnostics fields (8.c) (see
+#"available_diagnostics.log"
+#                 file for the list of all available diag. in this particular
+#config)
+#-----------------
+ &DIAG_STATIS_PARMS
+ diagst_mnc=.FALSE.,
+#     stat_freq(1:21)= 21*3600.,
+#    stat_phase(1:21)= 21*0.,
+# stat_fields(1,1)= 'TRAC01  '
+# stat_fields(1,2)= 'TRAC02  '
+# stat_fields(1,3)= 'TRAC03  '
+# stat_fields(1,4)= 'TRAC04  '
+# stat_fields(1,5)= 'TRAC05  '
+# stat_fields(1,6)= 'TRAC06  '
+# stat_fields(1,7)= 'TRAC07  '
+# stat_fields(1,8)= 'TRAC08  '
+# stat_fields(1,9)= 'TRAC09  '
+# stat_fields(1,10)= 'TRAC10  '
+# stat_fields(1,11)= 'TRAC11  '
+# stat_fields(1,12)= 'TRAC12  '
+# stat_fields(1,13)= 'TRAC13  '
+# stat_fields(1,14)= 'TRAC14  '
+# stat_fields(1,15)= 'TRAC15  '
+# stat_fields(1,16)= 'TRAC16  '
+# stat_fields(1,17)= 'TRAC17  '
+# stat_fields(1,18)= 'TRAC18  '
+# stat_fields(1,19)= 'TRAC19  '
+# stat_fields(1,20)= 'TRAC20  '
+# stat_fields(1,21)= 'TRAC21  '
+#    stat_fname(1)= 'stats/DIC',
+#    stat_fname(2)= 'stats/NH4',
+#    stat_fname(3)= 'stats/NO2',
+#    stat_fname(4)= 'stats/NO3',
+#    stat_fname(5)= 'stats/PO4',
+#    stat_fname(6)= 'stats/SiO2',
+#    stat_fname(7)= 'stats/FeT',
+#    stat_fname(8)= 'stats/DOC',
+#    stat_fname(9)= 'stats/DON',
+#    stat_fname(10)= 'stats/DOP',
+#    stat_fname(11)= 'stats/DOFe',
+#    stat_fname(12)= 'stats/POC',
+#    stat_fname(13)= 'stats/PON',
+#    stat_fname(14)= 'stats/POP',
+#    stat_fname(15)= 'stats/POSi',
+#    stat_fname(16)= 'stats/POFe',
+#    stat_fname(17)= 'stats/PIC',
+#    stat_fname(18)= 'stats/c1',
+#    stat_fname(19)= 'stats/c2',
+#    stat_fname(20)= 'stats/c3',
+#    stat_fname(21)= 'stats/c4',
+ &
